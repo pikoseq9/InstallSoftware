@@ -13,28 +13,33 @@ if (Get-Command Repair-WinGetPackageManager -ErrorAction SilentlyContinue) {
     Repair-WinGetPackageManager -AllUsers
 }
 
-# List of Ids of desired Apps in WinGet database
 $appIds = @(
+#General apps
     "Google.Chrome",
+    "7zip.7zip",
+    "Oracle.JDK.24",
+    "Mozilla.Firefox.pl",
+    "Spotify.Spotify",
+    "QNAP.NetBakPCAgent",
+    "QNAP.Qsync",
+    "dotPDN.PaintDotNet",
+    "Notepad++.Notepad++",
+    "Mozilla.Thunderbird.pl",
+#Business apps
+    "Microsoft.Teams",
     "TheDocumentFoundation.LibreOffice",
     "Adobe.Acrobat.Reader.64-bit",
     "HARMAN.AdobeAIR",
     "Kingsoft.WPSOffice",
-    "7zip.7zip",
-    "Oracle.JDK.24",
-    "Mozilla.Firefox.pl",
     "Zoom.Zoom",
-    "Spotify.Spotify",
-    "QNAP.NetBakPCAgent",
-    "QNAP.Qsync",
-    "9WZDNCRFHWLH",
-    "dotPDN.PaintDotNet",
-    "9P1J8S7CCWWT",
-    "Notepad++.Notepad++",
-    "Mozilla.Thunderbird.pl"
+#    "SlackTechnologies.Slack",
+    "Notion.Notion"
+#Remote access
+#    "TeamViewer.TeamViewer",
+#    "AnyDesk.AnyDesk",
+#    "Microsoft.RemoteDesktopClient"
 )
 
-# Process of installing/fixing apps
 foreach ($app in $appIds) {
     try {
         Write-Host ("Installing {0}..." -f $app)
